@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+<style>
+    .p1,.c1,.sc1{
+        padding: 25px;
+        height: 100px;
+    }
+    .p1{
+        background-color: aqua;
+    }
+    .c1{
+        background-color: aquamarine;
+    }
+    .sc1{
+        background-color: cadetblue;
+    }
+</style>
+
+</head>
+<body>
+    
+<div class="p1">
+    <div class="c1">
+        <div class="sc1">
+            <h1>Hello World</h1>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelector(".p1").addEventListener("click",(a)=>{
+        a.stopPropagation()
+        alert("Parent CLlick")
+    })
+    
+    document.querySelector(".c1").addEventListener("click",()=>{
+        // a.stopPropagation()
+        alert("child CLlick")
+    })
+    
+    document.querySelector(".sc1").addEventListener("click",(a)=>{
+        // a.stopPropagation()
+        alert("Subchild CLlick")
+    })
+</script>
+
+</body>
+</html>

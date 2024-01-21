@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Form</title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Signup Form</h2>
+
+  <form id="signupForm" onsubmit="validateForm(event)">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <span id="usernameError" class="error"></span>
+
+    <br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <span id="emailError" class="error"></span>
+
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <span id="passwordError" class="error"></span>
+
+    <br>
+
+    <input type="submit" value="Sign Up">
+  </form>
+
+  <script>
+    function validateForm(event) {
+      // Prevent the form from submitting
+      event.preventDefault();
+
+      // Get form elements
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Regular expressions for validation
+      const usernameRegex = /^[a-zA-Z0-9_]{3,20}$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const passwordRegex = /^.{6,}$/;
+
+      // Validation
+      const usernameIsValid = usernameRegex.test(username);
+      const emailIsValid = emailRegex.test(email);
+      const passwordIsValid = passwordRegex.test(password);
+
+      // Display validation errors
+      document.getElementById('usernameError').textContent = usernameIsValid ? '' : 'Invalid username';
+      document.getElementById('emailError').textContent = emailIsValid ? '' : 'Invalid email';
+      document.getElementById('passwordError').textContent = passwordIsValid ? '' : 'Password must be at least 6 characters';
+
+      // If all fields are valid, you can proceed with form submission
+      if (usernameIsValid && emailIsValid && passwordIsValid) {
+        alert('Form submitted successfully!');
+        // Add logic for actual form submission or redirect
+      }
+    }
+  </script>
+
+</body>
+</html>

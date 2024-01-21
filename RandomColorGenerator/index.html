@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="container">
+    <h1>
+        Hello World
+    </h1>
+    <button class="btn" onclick="changeColor()">
+        Click Me
+    </button>
+</div>
+
+<script>
+function RandomColor() {
+    let letters = "0123456789ABCDEF"
+    let color = "#"
+for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random()*16)]
+    
+}
+return color;
+}
+
+function changeColor() {
+    let cont = document.querySelector(".container")
+let btn = document.querySelector(".btn")
+btn.addEventListener("click",()=>{
+    cont.style.backgroundColor=RandomColor()
+})
+}
+changeColor()
+</script>
+</body>
+</html>

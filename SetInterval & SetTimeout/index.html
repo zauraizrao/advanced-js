@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetInterval & SetTimeout</title>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Hello Sir Rohaan</h1>
+    </div>
+
+    <script>
+//         setInterval(() => {
+//             function RandomColor() {
+//     let letters = "0123456789ABCDEF"
+//     let color = "#"
+// for (let i = 0; i < 6; i++) {
+//     color += letters[Math.floor(Math.random()*16)]
+    
+// }
+// return color;
+// }
+
+// function changeColor() {
+//     document.querySelector(".container").style.backgroundColor=RandomColor()
+// }
+// changeColor()
+
+//         }, 1500);
+
+
+setTimeout(() => {
+    function RandomColor() {
+    let letters = "0123456789ABCDEF"
+    let color = "#"
+for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random()*16)]
+    
+}
+return color;
+}
+
+function changeColor() {
+    let cont = document.querySelector(".container").style.backgroundColor=RandomColor()
+
+}
+changeColor()
+
+}, 1000);
+    </script>
+</body>
+</html>
